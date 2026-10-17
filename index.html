@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="ar">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>نُجِيبُ شَفَوِيّاً — عَوْدَةُ الطَّائِرِ</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap" />
+<style>
+:root{--bg:#0a0c10;--ink:#f4f6fb;--teal:#34d7b3;--teal-dim:#123a32}
+html,body{overflow:hidden}
+.reveal-viewport{background:var(--bg);
+  background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px),
+  radial-gradient(circle at 15% 20%,rgba(52,215,179,.07),transparent 40%),radial-gradient(circle at 85% 80%,rgba(244,114,182,.07),transparent 40%);
+  background-size:34px 34px,34px 34px,auto,auto}
+.reveal{font-family:'Amiri','Noto Naskh Arabic',serif;font-size:30px;color:var(--ink)}
+.reveal .slides section{direction:rtl;text-align:right;height:100%;letter-spacing:0}
+.reveal p,.reveal h1{margin:0;letter-spacing:0;text-transform:none}
+.reveal .progress{color:var(--teal);height:4px}
+.reveal .slide-number{color:var(--teal);background:none;font-size:18px}
+.row{display:flex;align-items:center;gap:1em;height:100%}
+.col{flex:1}
+.ico{width:300px;flex:none;color:var(--a)}
+.ico svg{width:100%;display:block}
+.head{display:flex;align-items:center;gap:.5em}
+.badge{display:inline-grid;place-items:center;width:1.6em;height:1.6em;border-radius:50%;background:var(--a);color:#0a0c10;font-weight:700;box-shadow:0 0 0 .2em rgba(255,255,255,.1)}
+.eyebrow{color:var(--a);font-weight:700;font-size:.85em}
+.ok{color:var(--teal)}
+.big{font-size:2.3em;line-height:2.05;margin:.1em 0}
+.big b{color:var(--a)}
+.mini{display:flex;align-items:center;gap:.5em;color:var(--a);font-size:.95em;line-height:1.9;margin-bottom:.6em}
+.mini .badge{font-size:.7em;flex:none}
+.ans{border-right:6px solid var(--teal);padding:.1em .9em .1em 0;background:linear-gradient(270deg,var(--teal-dim),transparent);margin-top:.2em}
+.turn{display:inline-block;margin-top:.5em;padding:.1em .9em;border:2px solid var(--a);border-radius:99px;color:var(--a);font-weight:700;animation:pulse 1.6s ease-in-out infinite}
+.center{display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;text-align:center}
+.center .eyebrow{font-size:1em}
+.title{font-size:3.6em;line-height:2;font-weight:700;background:linear-gradient(90deg,#fbbf24,#f472b6);-webkit-background-clip:text;background-clip:text;color:transparent;padding:0 .3em}
+.sub{font-size:1.2em;color:#7dd3fc;line-height:1.9}
+.teacher{margin-top:1.2em;color:#f4f6fb;font-size:1em;border-top:2px solid rgba(255,255,255,.18);padding-top:.45em}
+.teacher b{color:#fbbf24}
+.trio{display:flex;gap:1.6em;margin-top:.8em}
+.trio div{width:110px}
+.spin{transform-box:fill-box;transform-origin:center;animation:spin 14s linear infinite}
+.cl{fill:currentColor;fill-opacity:.2;stroke:currentColor;stroke-width:6;stroke-linejoin:round}
+.d{animation:fall 1.2s linear infinite}
+.s{animation:snow 3s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes fall{0%{transform:translateY(-8px);opacity:0}30%{opacity:1}100%{transform:translateY(34px);opacity:0}}
+@keyframes snow{0%{transform:translateY(-6px);opacity:0}20%{opacity:1}100%{transform:translateY(52px);opacity:0}}
+@keyframes pulse{50%{transform:scale(1.07)}}
+@media (max-width:600px){
+  .reveal{font-size:26px}
+  .row{flex-direction:column;justify-content:center;gap:.35em;text-align:center}
+  .col{width:100%;flex:none}
+  .head{justify-content:center}
+  .ico{width:min(42vw,180px);flex:none}
+  .big{font-size:1.45em;line-height:1.45}
+  .mini{justify-content:center;font-size:.82em;line-height:1.35}
+  .ans{border-right:0;border-top:4px solid var(--teal);padding:.35em .2em 0}
+  .title{font-size:2.3em;line-height:1.5}
+  .sub{font-size:1em}
+  .teacher{margin-top:.8em;font-size:.9em}
+  .trio{gap:.4em}
+  .trio div{width:72px}
+  .reveal .slide-number{font-size:14px}
+}
+</style>
+</head>
+<body>
+<div class="reveal"><div class="slides"></div></div>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+<script>
+const CLOUD='<path class="cl" d="M62 118h98a26 26 0 0 0 4-51 36 36 0 0 0-68-8 30 30 0 0 0-34 59z"/>';
+const drops=(xs,y)=>xs.map((x,i)=>`<line class="d" style="animation-delay:${i*.4}s" x1="${x}" y1="${y}" x2="${x-5}" y2="${y+16}" stroke="currentColor" stroke-width="6" stroke-linecap="round"/>`).join('');
+const rays=[0,45,90,135,180,225,270,315].map(a=>`<line x1="100" y1="18" x2="100" y2="40" transform="rotate(${a} 100 100)"/>`).join('');
+const ICON={
+ sun:`<svg viewBox="0 0 200 200"><g class="spin" stroke="currentColor" stroke-width="9" stroke-linecap="round">${rays}</g><circle cx="100" cy="100" r="38" fill="currentColor"/></svg>`,
+ rain:`<svg viewBox="0 0 200 200">${CLOUD}${drops([85,115,145],135)}</svg>`,
+ home:`<svg viewBox="0 0 200 200"><path d="M30 105 100 45l70 60" fill="none" stroke="currentColor" stroke-width="9" stroke-linejoin="round" stroke-linecap="round"/><rect x="52" y="100" width="96" height="70" rx="6" fill="currentColor" fill-opacity=".2" stroke="currentColor" stroke-width="7"/><rect x="88" y="125" width="24" height="45" rx="4" fill="currentColor"/>${drops([60,100,140],6)}</svg>`,
+ snow:`<svg viewBox="0 0 200 200">${CLOUD}${[80,105,130,155].map((x,i)=>`<circle class="s" style="animation-delay:${i*.7}s" cx="${x}" cy="132" r="6" fill="currentColor"/>`).join('')}</svg>`,
+ mix:`<svg viewBox="0 0 200 200"><circle cx="70" cy="70" r="30" fill="currentColor"/><g transform="translate(20 30)">${CLOUD}</g></svg>`
+};
+const items=[
+ {n:'١',c:'#fbbf24',i:'sun',q:'كَيْفَ يَكُونُ الْجَوُّ عِنْدَمَا تُشْرِقُ الشَّمْسُ؟',a:'عِنْدَمَا تُشْرِقُ الشَّمْسُ يُصْبِحُ الْجَوُّ <b>دَافِئاً</b>.'},
+ {n:'٢',c:'#38bdf8',i:'rain',q:'فِي أَيِّ فَصْلٍ يَسْقُطُ الْمَطَرُ؟',a:'يَسْقُطُ الْمَطَرُ فِي فَصْلِ <b>الشِّتَاءِ</b>.'},
+ {n:'٣',c:'#f472b6',i:'home',q:'أَيْنَ نَلْعَبُ عِنْدَمَا يَسْقُطُ الْمَطَرُ؟',a:'عِنْدَمَا يَسْقُطُ الْمَطَرُ نَلْعَبُ فِي <b>الْبَيْتِ</b> أَوْ فِي <b>الْأَمَاكِنِ الدَّافِئَةِ</b>.'},
+ {n:'٤',c:'#67e8f9',i:'snow',q:'كَيْفَ يَكُونُ الْجَوُّ عِنْدَمَا يَسْقُطُ الثَّلْجُ؟',a:'عِنْدَمَا يَسْقُطُ الثَّلْجُ يُصْبِحُ الْجَوُّ <b>بَارِداً جِدّاً</b>.'},
+ {n:'٥',c:'#c4b5fd',i:'mix',q:'نَصِفُ الْجَوَّ هَذَا الْيَوْمَ.'}
+];
+let html=`<section style="--a:#fbbf24"><div class="center"><span class="eyebrow">الدَّرْسُ الثَّالِثُ · عَوْدَةُ الطَّائِرِ</span><h1 class="title">نُجِيبُ شَفَوِيّاً</h1><p class="sub">الِاسْتِمَاعُ — نَصٌّ: الطَّقْسُ</p><p class="teacher">إعداد المعلمة: <b>ريم أبو خليل</b></p><div class="trio"><div style="color:#fbbf24">${ICON.sun}</div><div style="color:#38bdf8">${ICON.rain}</div><div style="color:#67e8f9">${ICON.snow}</div></div></div></section>`;
+items.forEach(it=>{
+ html+=`<section style="--a:${it.c}"><div class="row"><div class="col"><div class="head"><span class="badge">${it.n}</span><span class="eyebrow">سُؤَالٌ</span></div><p class="big">${it.q}</p>${it.a?'':'<span class="turn">دَوْرُكُمُ الْآنَ</span>'}</div><div class="ico">${ICON[it.i]}</div></div></section>`;
+ if(it.a) html+=`<section style="--a:${it.c}"><div class="row"><div class="col"><p class="mini"><span class="badge">${it.n}</span>${it.q}</p><span class="eyebrow ok">الْجَوَابُ</span><div class="ans"><p class="big">${it.a}</p></div></div><div class="ico">${ICON[it.i]}</div></div></section>`;
+});
+html+=`<section style="--a:#f472b6"><div class="center"><span class="eyebrow">شُكْراً لِحُسْنِ اسْتِمَاعِكُمْ</span><h1 class="title">أَحْسَنْتُمْ</h1><p class="teacher">إعداد المعلمة: <b>ريم أبو خليل</b></p><div class="trio"><div style="color:#fbbf24">${ICON.sun}</div><div style="color:#f472b6">${ICON.mix}</div><div style="color:#67e8f9">${ICON.snow}</div></div></div></section>`;
+document.querySelector('.slides').innerHTML=html;
+Reveal.initialize({rtl:true,hash:true,progress:true,slideNumber:'c/t',transition:'fade',transitionSpeed:'fast',width:'100%',height:'100%',margin:.04,center:false});
+let cool=false;
+addEventListener('wheel',e=>{if(cool||Math.abs(e.deltaY)<12)return;cool=true;e.deltaY>0?Reveal.next():Reveal.prev();setTimeout(()=>cool=false,650)},{passive:true});
+const sn=document.querySelector('.slide-number');
+if(sn){const fix=()=>{const w=document.createTreeWalker(sn,NodeFilter.SHOW_TEXT);let n;while(n=w.nextNode()){const t=n.nodeValue.replace(/\d/g,d=>'٠١٢٣٤٥٦٧٨٩'[d]);if(t!==n.nodeValue)n.nodeValue=t}};
+ new MutationObserver(fix).observe(sn,{childList:true,characterData:true,subtree:true});fix();}
+</script>
+</body>
+</html>
